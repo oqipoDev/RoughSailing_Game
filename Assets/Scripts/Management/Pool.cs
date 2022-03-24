@@ -7,17 +7,9 @@ public class Pool : MonoBehaviour
     public GameObject ObjectToPool;
     private List<GameObject> PoolOfObjects = new List<GameObject>();
 
-    private void Start()
+    public List<GameObject> GetObjectsInPool()
     {
-        for (int i = 0; i < 5; i++)
-        {
-            //Create instance
-            GameObject newPooldObj = Instantiate(ObjectToPool);
-            //Add it for later use
-            PoolOfObjects.Add(newPooldObj);
-
-            newPooldObj.SetActive(false);
-        }
+        return PoolOfObjects;
     }
 
     public GameObject GetPooledObject()
@@ -38,8 +30,16 @@ public class Pool : MonoBehaviour
         return newPooldObj;
     }
 
-    public List<GameObject> GetObjectsInPool()
+    private void Start()
     {
-        return PoolOfObjects;
+        for (int i = 0; i < 5; i++)
+        {
+            //Create instance
+            GameObject newPooldObj = Instantiate(ObjectToPool);
+            //Add it for later use
+            PoolOfObjects.Add(newPooldObj);
+
+            newPooldObj.SetActive(false);
+        }
     }
 }

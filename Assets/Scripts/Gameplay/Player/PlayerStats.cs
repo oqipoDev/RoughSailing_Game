@@ -6,7 +6,7 @@ public class PlayerStats : MonoBehaviour
 {
     private int Health = 10;
 
-    public void Damage (EnemyAttack attack)
+    public void Damage (AttackHitbox_Gen attack)
     {
         Health -= attack.DamageAmount;
 

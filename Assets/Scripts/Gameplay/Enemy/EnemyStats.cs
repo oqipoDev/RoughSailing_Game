@@ -6,12 +6,17 @@ public class EnemyStats : MonoBehaviour
 {
     private int Health = 10;
 
-    public void Damage (int damagePoints)
+    public void Damage (AttackHitbox_Gen attack)
     {
-        Health -= damagePoints;
+        Health -= attack.DamageAmount;
 
         if (Health <= 0)
+        {
             LifeDepleted();
+            return;
+        }
+        //Stunlock
+        GetComponent<EnemyMovement>().Knockback(attack);
     }
 
     private void LifeDepleted()

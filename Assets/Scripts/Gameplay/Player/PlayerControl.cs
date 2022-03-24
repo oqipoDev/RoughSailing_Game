@@ -33,7 +33,7 @@ public class PlayerControl : MonoBehaviour
         //Action
     private float ActionTimer = 0; //Stores time since last state change
     private int PunchNum = 0; //Stores last player punch for combos
-    private EnemyAttack LastAttack; //Stores last attack, used for damage, animation and stunlock effects
+    private AttackHitbox_Gen LastAttack; //Stores last attack, used for damage, animation and stunlock effects
 
     // Start is called before the first frame update
     void Start()
@@ -130,7 +130,7 @@ public class PlayerControl : MonoBehaviour
                     ActionTimer = 0;
                 }
 
-                transform.localPosition += new Vector3(-Facing.x, 0, -Facing.y) * (LastAttack.StunTime - ActionTimer) * Time.deltaTime * LastAttack.LeanForward * 100;
+                transform.localPosition += new Vector3(-Facing.x, 0, -Facing.y) * (LastAttack.StunTime - ActionTimer) * Time.deltaTime * LastAttack.MoveForward * 100;
             break;
 
             default:
@@ -138,7 +138,7 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    public void StunlockPlayer(EnemyAttack attack)
+    public void StunlockPlayer(AttackHitbox_Gen attack)
     {
         LastAttack = attack;
         

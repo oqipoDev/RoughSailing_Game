@@ -2121,7 +2121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 143302408}
   - component: {fileID: 143302405}
-  - component: {fileID: 143302409}
+  - component: {fileID: 143302406}
   m_Layer: 0
   m_Name: FirstPunch
   m_TagString: Untagged
@@ -2142,6 +2142,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.06, y: 1.5, z: 1.3968252}
   m_Center: {x: 0.24000001, y: 1, z: 0.457812}
+--- !u!114 &143302406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143302404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f44c5cee7a81b6c4c900dbce67e15583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsPlayer: 1
+  atkName: 
+  TelegraphTime: 1
+  RecoveryTime: 0.5
+  DamageAmount: 2
+  MoveForward: 1
+  StunTime: 0.5
 --- !u!4 &143302408
 Transform:
   m_ObjectHideFlags: 0
@@ -2156,21 +2175,6 @@ Transform:
   m_Father: {fileID: 85909672}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &143302409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 143302404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0cb29f024fa0564593f4f1c558760f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsPlayer: 1
-  DamageAmount: 2
-  KnockbackTime: 0.5
 --- !u!1 &150803594
 GameObject:
   m_ObjectHideFlags: 0
@@ -3656,12 +3660,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 292139245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0cb29f024fa0564593f4f1c558760f7, type: 3}
+  m_Script: {fileID: 11500000, guid: f44c5cee7a81b6c4c900dbce67e15583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IsPlayer: 1
+  atkName: 
+  TelegraphTime: 1
+  RecoveryTime: 0.5
   DamageAmount: 2
-  KnockbackTime: 0.5
+  MoveForward: 1
+  StunTime: 0.5
 --- !u!65 &292139248
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9865,12 +9873,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 806370608}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0cb29f024fa0564593f4f1c558760f7, type: 3}
+  m_Script: {fileID: 11500000, guid: f44c5cee7a81b6c4c900dbce67e15583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IsPlayer: 1
-  DamageAmount: 2
-  KnockbackTime: 0.5
+  atkName: 
+  TelegraphTime: 1
+  RecoveryTime: 0.5
+  DamageAmount: 4
+  MoveForward: 1
+  StunTime: 0.5
 --- !u!65 &806370611
 BoxCollider:
   m_ObjectHideFlags: 0

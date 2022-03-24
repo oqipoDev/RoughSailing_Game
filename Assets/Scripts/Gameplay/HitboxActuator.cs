@@ -20,7 +20,7 @@ public class HitboxActuator : MonoBehaviour
         if (!IsPlayer && col.gameObject.tag == "Player")
         {
             //Damage player
-            col.gameObject.GetComponent<PlayerStats>().Damage(GetComponent<EnemyAttack>());
+            col.gameObject.GetComponent<PlayerStats>().Damage(GetComponent<AttackHitbox_Gen>());
             //Position
             Vector2 hitDirection = CalculateDirection(col.transform.localPosition, transform.parent.localPosition);
             //TODO Knockback
@@ -29,11 +29,11 @@ public class HitboxActuator : MonoBehaviour
         if (IsPlayer && col.gameObject.tag == "Enemy")
         {
             //Damage enemy
-            col.gameObject.GetComponent<EnemyStats>().Damage(DamageAmount);
+            //col.gameObject.GetComponent<EnemyStats>().Damage(DamageAmount);
             //Position
             Vector2 hitDirection = CalculateDirection(col.transform.localPosition, transform.parent.localPosition);
             //Knockback
-            col.gameObject.GetComponent<EnemyMovement>().Knockback(KnockbackTime,hitDirection);
+            //col.gameObject.GetComponent<EnemyMovement>().Knockback(KnockbackTime,hitDirection);
         }
     }
 

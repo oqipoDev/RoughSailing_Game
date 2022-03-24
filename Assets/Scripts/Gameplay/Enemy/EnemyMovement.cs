@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
     public float WalkingSpeed = 1f;
     [Range(0f , 0.25f)] public float Momentum = 0.1f;
     public float AttackDistance = 0.5f;
-    public List<EnemyAttack> Attacks;
+    public List<AttackHitbox_Gen> Attacks;
 
     public float waitingTime;
     public float waitingTime2;
@@ -29,7 +29,7 @@ public class EnemyMovement : MonoBehaviour
     private Vector2 CurrentAccel;
     [SerializeField]
     private float timeLeft;
-    private EnemyAttack CurrentAttack;
+    private AttackHitbox_Gen CurrentAttack;
 
     // Start is called before the first frame update
     void Start()
@@ -109,7 +109,7 @@ public class EnemyMovement : MonoBehaviour
                 animator.SetInteger("Stage", 3);
                 timeLeft -= Time.deltaTime;
                 //Add forward force
-                transform.localPosition += new Vector3(Facing.x, 0, Facing.y) * timeLeft * Time.deltaTime * CurrentAttack.LeanForward * 10;
+                transform.localPosition += new Vector3(Facing.x, 0, Facing.y) * timeLeft * Time.deltaTime * CurrentAttack.MoveForward * 10;
 
                 if (timeLeft <= 0)
                 {
@@ -171,12 +171,14 @@ public class EnemyMovement : MonoBehaviour
             break;
         }
     }
-    public void Knockback(float time, Vector2 direction)
+    public void Knockback(AttackHitbox_Gen attack)
     {
         animator.SetInteger("Stage", 4);
         CurrentState = EnemyStates.Damaged;
-        timeLeft = time;
-        Directions = direction;
+        timeLeft = attack.StunTime;
+        //turn
+        Vector3 facin = (attack.gameObject.transform.position - transform.position).normalized;
+        Facing = new Vector2(facin.x, facin.z);
     }
 
     private void SetRandomAttack()

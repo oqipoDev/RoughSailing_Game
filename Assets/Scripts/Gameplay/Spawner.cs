@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public List<Transform> SpawnPositions;
+    //TODO use PoolManager
     private static List<Pool> AvailablePools = new List<Pool>();
 
     public void Spawn(GameObject obj)
